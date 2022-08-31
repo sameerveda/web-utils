@@ -1,13 +1,16 @@
 {
   "name": "web-utils",
-  "version": "0.0.4",
-  "main": "index.js",
+  "version": "0.0.6",
+  "main": "./dist/index.js",
   "license": "MIT",
+  "exports": {
+    ".": "./src/utils"
+  },
   "scripts": {
     "start": "node build.js --dev",
     "build": "node build.js --prod"
   },
-  "dependencies": {
+  "devDependencies": {
     "basscss": "^8.1.0",
     "esbuild": "^0.15.6",
     "esbuild-svelte": "^0.7.1",
