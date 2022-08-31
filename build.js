@@ -17,12 +17,13 @@ if (prod) {
 
 writeFileSync(
   './build-inject.js',
-  `export const buildInfo = ${JSON.stringify({
-    date: new Date().toISOString(),
-    version: package.version,
-  })}; 
-
-  export const process = ${JSON.stringify({ isDev: dev })};
+  `export const process = ${JSON.stringify({
+    isDev: dev,
+    buildInfo: {
+      date: new Date().toISOString(),
+      version: package.version,
+    },
+  })};
   `
 );
 

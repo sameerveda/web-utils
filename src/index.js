@@ -1,6 +1,8 @@
 import 'basscss/css/basscss.css';
 import './style.css';
-import App from './App.svelte';
+export { default as App } from './App.svelte';
+export { default as CopyBtn } from './utils/CopyBtn.svelte';
+export { default as JsonView } from './utils/JsonView.svelte';
+export { default as Labeled } from './utils/Labeled.svelte';
 
-App.buildInfo = buildInfo;
-export default App;
+export const buildInfo = process.buildInfo;

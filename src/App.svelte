@@ -5,6 +5,7 @@
 
   export let selected = null;
   export let hashUrl = false;
+  export let utils = {};
 
   const dispatch = createEventDispatcher();
 
@@ -14,6 +15,7 @@
   });
 
   const components = {
+    ...utils,
     'Query String to Object': ParseQueryString,
     'Object to Query String': ObjectToQueryString,
   };
