@@ -18,7 +18,6 @@
 </script>
 
 <div class="flex flex-column gap-1">
-  <p class="error">{error || ''}</p>
   <span>
     Query Object <button on:click={() => (value = JSON.stringify({ a: 10, b: 20 }, null, 2))}>
       Example
@@ -27,6 +26,7 @@
   <textarea bind:value rows="10" />
   <span>Generated Query String <CopyBtn content={params} /></span>
   <code>{params || ''}</code>
+  <p class="error">{error || ''}</p>
 </div>
 
 <style>
