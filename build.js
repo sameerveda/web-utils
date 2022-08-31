@@ -17,7 +17,7 @@ if (prod) {
 
 esbuild
   .build({
-    entryPoints: ['src/index.js'],
+    entryPoints: ['src/app.js'],
     outdir: prod ? 'dist' : 'public/build',
     bundle: true,
     format: 'esm',
