@@ -1,6 +1,6 @@
 <script>
-  import JsonView from './JsonView.svelte';
-  import Labeled from './Labeled.svelte';
+  import JsonView from '../components/JsonView.svelte';
+  import Labeled from '../components/Labeled.svelte';
 
   let params;
   $: parsed = params?.trim().replace(/^\?/, '').trim()

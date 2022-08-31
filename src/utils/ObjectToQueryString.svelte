@@ -1,5 +1,5 @@
 <script>
-  import CopyBtn from './CopyBtn.svelte';
+  import CopyBtn from '../components/CopyBtn.svelte';
 
   let value = '{}';
   let params;
