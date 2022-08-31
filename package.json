@@ -1,0 +1,26 @@
+{
+  "name": "web-utils",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node build.js --dev",
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "basscss": "^8.1.0",
+    "esbuild": "^0.15.6",
+    "esbuild-svelte": "^0.7.1",
+    "lodash-es": "^4.17.21",
+    "prettier": "^2.7.1",
+    "serve-http": "^1.0.7",
+    "svelte": "^3.49.0"
+  },
+  "prettier": {
+    "htmlWhitespaceSensitivity": "ignore",
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "arrowParens": "avoid"
+  }
+}
