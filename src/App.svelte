@@ -1,15 +1,17 @@
 <script context="module">
+  import { createEventDispatcher, onMount } from 'svelte';
+  import MbAssetCompare from './utils/MbAssetCompare.svelte';
+  import ObjectToQueryString from './utils/ObjectToQueryString.svelte';
+  import ParseQueryString from './utils/ParseQueryString.svelte';
+
   export const defaultComponents = {
     'Query String to Object': ParseQueryString,
     'Object to Query String': ObjectToQueryString,
+    'MB Asset Compare': MbAssetCompare,
   };
 </script>
 
 <script>
-  import { createEventDispatcher, onMount } from 'svelte';
-  import ObjectToQueryString from './utils/ObjectToQueryString.svelte';
-  import ParseQueryString from './utils/ParseQueryString.svelte';
-
   export let selected = null;
   export let hashUrl = false;
   export let components = defaultComponents;
