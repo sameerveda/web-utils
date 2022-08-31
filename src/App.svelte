@@ -1,3 +1,10 @@
+<script context="module">
+  export const defaultComponents = {
+    'Query String to Object': ParseQueryString,
+    'Object to Query String': ObjectToQueryString,
+  };
+</script>
+
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
   import ObjectToQueryString from './utils/ObjectToQueryString.svelte';
@@ -5,7 +12,7 @@
 
   export let selected = null;
   export let hashUrl = false;
-  export let utils = {};
+  export let components = defaultComponents;
 
   const dispatch = createEventDispatcher();
 
@@ -13,12 +20,6 @@
     if (hashUrl && location.hash.substring(1))
       selected = decodeURIComponent(location.hash.substring(1));
   });
-
-  const components = {
-    ...utils,
-    'Query String to Object': ParseQueryString,
-    'Object to Query String': ObjectToQueryString,
-  };
 </script>
 
 <div class="wu-main-container flex">
