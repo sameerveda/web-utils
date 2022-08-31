@@ -3,7 +3,7 @@
   "version": "0.0.9",
   "license": "MIT",
   "exports": {
-    ".": "./src",
+    ".": "./src/index.js",
     "./app": "./src/app.js",
     "./utils/": "./src/utils/"
   },
