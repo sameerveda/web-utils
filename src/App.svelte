@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
+  import ObjectToQueryString from './utils/ObjectToQueryString.svelte';
   import ParseQueryString from './utils/ParseQueryString.svelte';
 
   export let selected = null;
@@ -14,6 +15,7 @@
 
   const components = {
     'Query String to Object': ParseQueryString,
+    'Object to Query String': ObjectToQueryString,
   };
 </script>
 

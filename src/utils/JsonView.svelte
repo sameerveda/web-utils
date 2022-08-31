@@ -1,4 +1,5 @@
 <script>
+  import CopyBtn from './CopyBtn.svelte';
   import Labeled from './Labeled.svelte';
 
   export let data;
@@ -15,7 +16,7 @@
       <input type="checkbox" bind:checked={minify} {id} />
     </Labeled>
 
-    <button on:click={() => navigator.clipboard.writeText(content)}>Copy</button>
+    <CopyBtn {content} />
   </div>
   <textarea class="flex-auto w-100" value={content} {rows} {readonly} />
 </div>

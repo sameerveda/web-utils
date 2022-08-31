@@ -16,11 +16,14 @@ if (prod) {
 }
 
 writeFileSync(
-  './build-info.js',
+  './build-inject.js',
   `export const buildInfo = ${JSON.stringify({
     date: new Date().toISOString(),
     version: package.version,
-  })} `
+  })}; 
+
+  export const process = ${JSON.stringify({ isDev: dev })};
+  `
 );
 
 esbuild
@@ -30,7 +33,7 @@ esbuild
     bundle: true,
     format: 'esm',
     splitting: true,
-    inject: ['./build-info.js'],
+    inject: ['./build-inject.js'],
     loader: {
       '.html': 'text',
       '.png': 'dataurl',
