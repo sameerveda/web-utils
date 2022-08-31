@@ -1,11 +1,7 @@
 {
   "name": "web-utils",
-  "version": "0.0.6",
-  "main": "./dist/index.js",
+  "version": "0.0.7",
   "license": "MIT",
-  "exports": {
-    ".": "./src/utils"
-  },
   "scripts": {
     "start": "node build.js --dev",
     "build": "node build.js --prod"

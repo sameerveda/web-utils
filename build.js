@@ -15,18 +15,6 @@ if (prod) {
   writeFileSync('./package.json', JSON.stringify(package, null, 2));
 }
 
-writeFileSync(
-  './build-inject.js',
-  `export const process = ${JSON.stringify({
-    isDev: dev,
-    buildInfo: {
-      date: new Date().toISOString(),
-      version: package.version,
-    },
-  })};
-  `
-);
-
 esbuild
   .build({
     entryPoints: ['src/index.js'],
@@ -34,7 +22,6 @@ esbuild
     bundle: true,
     format: 'esm',
     splitting: true,
-    inject: ['./build-inject.js'],
     loader: {
       '.html': 'text',
       '.png': 'dataurl',
