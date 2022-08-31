@@ -22,6 +22,6 @@
 
 <style>
   textarea {
-    resize: none;
+    resize: vertical;
   }
 </style>

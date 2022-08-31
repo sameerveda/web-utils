@@ -1,11 +1,11 @@
 {
   "name": "web-utils",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node build.js --dev",
-    "build": "node build.js"
+    "build": "node build.js --prod"
   },
   "dependencies": {
     "basscss": "^8.1.0",

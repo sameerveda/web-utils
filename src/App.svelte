@@ -18,7 +18,7 @@
 </script>
 
 <div class="wu-main-container flex">
-  <ul class="p0 m0">
+  <ul class="p1 m0">
     {#each Object.keys(components) as item}
       <li class:selected={item === selected}>
         <a
