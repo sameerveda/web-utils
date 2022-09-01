@@ -50,7 +50,17 @@
 
 <div class="h-100 overflow-auto">
   <div class="input-container w-100">
-    <span>Live ({live.length})</span>
+    <span class="flex">
+      Live ({live.length})
+      <div class="flex-auto" />
+      <button
+        on:click={() => {
+          [liveText, currentText] = [currentText, liveText];
+        }}
+      >
+        Flip Content
+      </button>
+    </span>
     <span>Current ({current.length})</span>
     <textarea rows="30" bind:value={liveText} />
     <textarea rows="30" bind:value={currentText} />
