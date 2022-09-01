@@ -10,7 +10,7 @@
   }
 
   function countDuplicate(list) {
-    return pickBy(countBy(list), t => t > 1);
+    return new Set(Object.keys(pickBy(countBy(list), t => t > 1)));
   }
 </script>
 
