@@ -1,6 +1,6 @@
 <script>
   import CopyBtn from './CopyBtn.svelte';
-  import Labeled from './Labeled.svelte';
+  import Control from './Control.svelte';
 
   export let data;
   export let minify = false;
@@ -12,9 +12,9 @@
 
 <div {...$$restProps} class="json_view flex flex-column mt1 w-100 gap-1">
   <div class="toolbar flex gap-1">
-    <Labeled text="Minify" reversed let:id>
+    <Control text="Minify" reversed let:id>
       <input type="checkbox" bind:checked={minify} {id} />
-    </Labeled>
+    </Control>
 
     <CopyBtn {content} />
   </div>

@@ -1,13 +1,13 @@
 <script context="module">
   import { createEventDispatcher, onMount } from 'svelte';
+  import Lodash from './utils/Lodash.svelte';
   import MbAssetCompare from './utils/MbAssetCompare.svelte';
-  import ObjectToQueryString from './utils/ObjectToQueryString.svelte';
-  import ParseQueryString from './utils/ParseQueryString.svelte';
+  import QueryString from './utils/QueryString.svelte';
 
   export const defaultComponents = {
-    'Query String to Object': ParseQueryString,
-    'Object to Query String': ObjectToQueryString,
+    'Query String': QueryString,
     'MB Asset Compare': MbAssetCompare,
+    // Lodash,
   };
 </script>
 

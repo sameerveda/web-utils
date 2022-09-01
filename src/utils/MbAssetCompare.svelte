@@ -10,16 +10,12 @@
   }
 
   function countDuplicate(list) {
-    return new Set(
-      Object.entries(mapValues(groupBy(list), t => t.length))
-        .filter(([k, v]) => v > 1)
-        .map(([k]) => k)
-    );
+    return pickBy(countBy(list), t => t > 1);
   }
 </script>
 
 <script>
-  import { groupBy, mapValues, uniq } from 'lodash-es';
+  import { pickBy, uniq, countBy } from 'lodash';
   const cache = JSON.parse(localStorage.getItem('MbAssetCompare') || '{}');
   let liveText = cache.live;
   let currentText = cache.current;

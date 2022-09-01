@@ -1,6 +1,6 @@
 {
   "name": "web-utils",
-  "version": "0.0.10",
+  "version": "0.0.13",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
@@ -12,10 +12,10 @@
     "build": "node build.js --prod"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "basscss": "^8.1.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "basscss": "^8.1.0",
     "esbuild": "^0.15.6",
     "esbuild-svelte": "^0.7.1",
     "prettier": "^2.7.1",
