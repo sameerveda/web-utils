@@ -2,6 +2,8 @@ const sveltePlugin = require('esbuild-svelte');
 const esbuild = require('esbuild');
 const { writeFileSync } = require('fs');
 const package = require('./package.json');
+const alias = require('esbuild-plugin-alias');
+const { join } = require('path');
 
 const dev = process.argv.includes('--dev');
 const prod = process.argv.includes('--prod');
@@ -33,7 +35,10 @@ esbuild
     },
     minify: !dev,
     watch: dev,
-    plugins: [sveltePlugin()],
+    plugins: [
+      alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
+      sveltePlugin(),
+    ],
   })
   .then(() => {
     if (!dev) return;

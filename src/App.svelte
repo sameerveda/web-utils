@@ -1,13 +1,13 @@
 <script context="module">
   import { createEventDispatcher, onMount } from 'svelte';
-  import Lodash from './utils/Lodash.svelte';
-  import MbAssetCompare from './utils/MbAssetCompare.svelte';
-  import QueryString from './utils/QueryString.svelte';
+  import Lodash from './utils-pages/Lodash.svelte';
+  import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
+  import QueryString from './utils-pages/QueryString.svelte';
 
   export const defaultComponents = {
     'Query String': QueryString,
     'MB Asset Compare': MbAssetCompare,
-    // Lodash,
+    Lodash,
   };
 </script>
 

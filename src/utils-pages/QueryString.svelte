@@ -1,8 +1,7 @@
 <script>
-  import JsonView from '../components/JsonView.svelte';
+  import { size } from 'lodash-es';
   import Control from '../components/Control.svelte';
   import CopyBtn from '../components/CopyBtn.svelte';
-  import { size } from 'lodash';
 
   let queryString = null,
     url = null,

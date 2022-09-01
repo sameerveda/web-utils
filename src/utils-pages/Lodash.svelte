@@ -1,5 +1,4 @@
 <script>
-  import lodash from 'lodash';
   import { keys } from 'lodash';
   import Control from '../components/Control.svelte';
 

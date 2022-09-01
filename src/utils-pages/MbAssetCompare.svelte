@@ -15,7 +15,9 @@
 </script>
 
 <script>
-  import { pickBy, uniq, countBy } from 'lodash';
+  import { pickBy, uniq, countBy } from 'lodash-es';
+  import CopyBtn from '../components/CopyBtn.svelte';
+
   const cache = JSON.parse(localStorage.getItem('MbAssetCompare') || '{}');
   let liveText = cache.live;
   let currentText = cache.current;
@@ -75,6 +77,7 @@
         {:else}
           <span class={`status-badge ok`}>OK</span>
         {/each}
+        <CopyBtn content={item.url} />
       </li>
     {/each}
   </ul>

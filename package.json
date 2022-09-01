@@ -1,10 +1,11 @@
 {
   "name": "web-utils",
-  "version": "0.0.15",
+  "version": "0.0.21",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
     "./app": "./src/app.js",
+    "./components/": "./src/components/",
     "./utils/": "./src/utils/"
   },
   "scripts": {
@@ -13,10 +14,15 @@
   },
   "dependencies": {
     "basscss": "^8.1.0",
+    "lodash-es": "^4.17.21"
+  },
+  "optionalDependencies": {
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@types/chrome": "^0.0.196",
     "esbuild": "^0.15.6",
+    "esbuild-plugin-alias": "^0.2.1",
     "esbuild-svelte": "^0.7.1",
     "prettier": "^2.7.1",
     "serve-http": "^1.0.7",
