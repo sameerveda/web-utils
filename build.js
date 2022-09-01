@@ -1,6 +1,6 @@
 const sveltePlugin = require('esbuild-svelte');
 const esbuild = require('esbuild');
-const { writeFileSync } = require('fs');
+const { writeFileSync, writeFile } = require('fs');
 const package = require('./package.json');
 const alias = require('esbuild-plugin-alias');
 const { join } = require('path');
@@ -16,6 +16,15 @@ if (prod) {
   package.version = package.version.join('.');
   writeFileSync('./package.json', JSON.stringify(package, null, 2));
 }
+
+writeFileSync(
+  './src/utils/env.js',
+  `export default ${JSON.stringify({
+    isDev: dev,
+    buildTime: new Date().toISOString(),
+    version: package.version,
+  })}`
+);
 
 esbuild
   .build({

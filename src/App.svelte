@@ -3,6 +3,7 @@
   import Lodash from './utils-pages/Lodash.svelte';
   import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
   import QueryString from './utils-pages/QueryString.svelte';
+  import env from './utils/env';
 
   export const defaultComponents = {
     'Query String': QueryString,
@@ -25,6 +26,7 @@
 </script>
 
 <div class="wu-main-container flex">
+  <p title={env.buildTime} class="version-label">{env.version}</p>
   <ul class="p1 m0">
     {#each Object.keys(components) as item}
       <li class:selected={item === selected}>
@@ -53,5 +55,14 @@
   .wu-main-container > ul {
     flex-basis: 200px;
     border-right: 1px solid black;
+  }
+
+  .version-label {
+    border: thin solid gray;
+    position: absolute;
+    bottom: 0;
+    left: 1px;
+    padding: 2px 4px;
+    margin: 0;
   }
 </style>
