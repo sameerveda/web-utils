@@ -6,7 +6,7 @@ const alias = require('esbuild-plugin-alias');
 const { join } = require('path');
 
 const dev = process.argv.includes('--dev');
-const prod = process.argv.includes('--prod');
+const prod = !dev;
 
 if (prod) {
   package.version = package.version.split('.');
@@ -26,35 +26,39 @@ writeFileSync(
   })}`
 );
 
-esbuild
-  .build({
-    entryPoints: ['src/app.js'],
-    outdir: prod ? 'dist' : 'public/build',
-    bundle: true,
-    format: 'esm',
-    splitting: true,
-    loader: {
-      '.html': 'text',
-      '.png': 'dataurl',
-      '.woff': 'file',
-      '.woff2': 'file',
-      '.eot': 'file',
-      '.ttf': 'file',
-      '.svg': 'file',
-    },
-    minify: !dev,
-    watch: dev,
-    plugins: [
-      alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
-      sveltePlugin(),
-    ],
-  })
-  .then(() => {
-    if (!dev) return;
+const builder = format =>
+  esbuild
+    .build({
+      entryPoints: ['src/app.js'],
+      outdir: prod ? 'dist' : 'public/build',
+      outExtension: { '.js': `.${format}.js` },
+      bundle: true,
+      format,
+      loader: {
+        '.html': 'text',
+        '.png': 'dataurl',
+        '.woff': 'file',
+        '.woff2': 'file',
+        '.eot': 'file',
+        '.ttf': 'file',
+        '.svg': 'file',
+      },
+      minify: !dev,
+      watch: dev,
+      plugins: [
+        alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
+        sveltePlugin(),
+      ],
+    })
+    .then(() => {
+      if (!dev) return;
 
-    require('serve-http').createServer({
-      port: 3000,
-      pubdir: require('path').join(__dirname, 'public'),
+      require('serve-http').createServer({
+        port: 3000,
+        pubdir: require('path').join(__dirname, 'public'),
+      });
+      console.log('server started at http://localhost:3000');
     });
-    console.log('server started at http://localhost:3000');
-  });
+
+builder('esm');
+prod && builder('iife');
