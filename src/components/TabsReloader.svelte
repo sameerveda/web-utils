@@ -1,9 +1,3 @@
-<script context="module">
-  export function listTabs$() {
-    return chrome.tabs.query({});
-  }
-</script>
-
 <script>
   import chrome from '../utils/chrome';
 

@@ -42,7 +42,7 @@
       </li>
     {/each}
   </ul>
-  <div class="wu-content-container flex-auto p2">
+  <div class="wu-content-container flex-auto">
     {#if components[selected]}
       <svelte:component this={components[selected]} />
     {:else}
