@@ -55,6 +55,7 @@ const builder = format =>
 
       require('serve-http').createServer({
         port: 3000,
+        quiet: true,
         pubdir: require('path').join(__dirname, 'public'),
       });
       console.log('server started at http://localhost:3000');

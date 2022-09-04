@@ -26,3 +26,7 @@ export function wait(timeMS) {
 export function listTabs() {
   return chrome.tabs.query({});
 }
+
+export function currentTab() {
+  return chrome.tabs.query({ active: true, currentWindow: true }).then(t => t?.[0]);
+}
