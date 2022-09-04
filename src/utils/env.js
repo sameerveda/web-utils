@@ -1,1 +1,1 @@
-export default {"isDev":false,"buildTime":"2022-09-04T20:48:18.713Z","version":"0.0.30"}
+export default {"isDev":false,"buildTime":"2022-09-04T20:59:39.506Z","version":"0.0.31"}

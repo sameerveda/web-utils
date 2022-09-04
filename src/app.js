@@ -14,3 +14,10 @@ App.defaultComponents = defaultComponents;
 
 window.WebUtilsApp = App;
 export default App;
+
+const target = document.currentScript.getAttribute('target');
+target &&
+  new App({
+    target: document.querySelector(target),
+    props: JSON.parse(document.currentScript.getAttribute('props') || '{}'),
+  });
