@@ -1,18 +1,14 @@
-<script context="module">
-  initLogCollection();
-</script>
-
 <script>
   import { onMount } from 'svelte';
 
   import LogAdd from '../components/LogAdd.svelte';
   import LogsView from '../components/LogsView.svelte';
-  import { FirestoreCollectionWrap } from '../utils/firestore-collection-wrap';
-  import { getLogs, addLog, initLogCollection } from '../utils/logs-helper';
+  import { addLog, getLogs, initLogCollection } from '../utils/logs-helper';
 
   let logs = [];
 
   onMount(async () => {
+    initLogCollection.init || initLogCollection();
     logs = await getLogs();
   });
 </script>

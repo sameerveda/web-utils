@@ -10,6 +10,7 @@ export function initLogCollection(
   colName = document.currentScript.getAttribute('log-col-name') || 'web-utils-log'
 ) {
   if (collection) throw new Error('already initialized');
+  initLogCollection.init = true;
   collection = new FirestoreCollectionWrap(colName);
 }
 
