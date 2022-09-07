@@ -29,9 +29,10 @@ writeFileSync(
 const builder = format =>
   esbuild
     .build({
-      entryPoints: ['src/app.js'],
+      entryPoints: ['src/app.js', dev && 'src/logs.js'].filter(Boolean),
       outdir: prod ? 'dist' : 'public/build',
       outExtension: { '.js': `.${format}.js` },
+      inject: ['./firebaseConfig.js'],
       bundle: true,
       format,
       loader: {
@@ -61,5 +62,7 @@ const builder = format =>
       console.log('server started at http://localhost:3000');
     });
 
-builder('esm');
-prod && builder('iife');
+// builder('esm');
+// prod && builder('iife');
+
+builder('iife');

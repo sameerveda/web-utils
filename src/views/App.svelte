@@ -1,21 +1,12 @@
 <script context="module">
   import { createEventDispatcher, onMount } from 'svelte';
-  import Lodash from './utils-pages/Lodash.svelte';
-  import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
-  import QueryString from './utils-pages/QueryString.svelte';
-  import env from './utils/env';
-
-  export const defaultComponents = {
-    'Query String': QueryString,
-    'MB Asset Compare': MbAssetCompare,
-    Lodash,
-  };
+  import env from '../utils/env';
 </script>
 
 <script>
   export let selected = null;
   export let hashUrl = false;
-  export let components = defaultComponents;
+  export let components = [];
 
   const dispatch = createEventDispatcher();
 
@@ -31,8 +22,12 @@
     {#each Object.keys(components) as item}
       <li class:selected={item === selected}>
         <a
-          href={hashUrl ? '#' + encodeURIComponent(item) : null}
-          on:click={() => {
+          href={typeof components[item] === 'string'
+            ? components[item]
+            : hashUrl
+            ? '#' + encodeURIComponent(item)
+            : null}
+          on:click={e => {
             selected = item;
             dispatch('selectedChange', item);
           }}
