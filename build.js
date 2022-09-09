@@ -29,7 +29,7 @@ writeFileSync(
 const builder = format =>
   esbuild
     .build({
-      entryPoints: ['src/app.js', dev && 'src/logs.js'].filter(Boolean),
+      entryPoints: ['src/app.js'],
       outdir: prod ? 'dist' : 'public/build',
       outExtension: { '.js': `.${format}.js` },
       inject: ['./firebaseConfig.js'],

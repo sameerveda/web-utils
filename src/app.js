@@ -6,6 +6,7 @@ import mountApp from './utils/mount-app';
 import Lodash from './utils-pages/Lodash.svelte';
 import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
 import QueryString from './utils-pages/QueryString.svelte';
+import CompareJson from './utils-pages/CompareJson.svelte';
 import Logs from './views/Logs.svelte';
 
 if (window._) console.error(`failed to set window._ = lodash;`);
@@ -19,6 +20,7 @@ export const defaultComponents = {
   'MB Asset Compare': MbAssetCompare,
   Lodash,
   Logs,
+  CompareJson
 };
 
 App.defaultComponents = defaultComponents;

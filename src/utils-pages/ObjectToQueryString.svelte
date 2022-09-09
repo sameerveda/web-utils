@@ -24,6 +24,15 @@
     </button>
   </span>
   <textarea bind:value rows="10" />
+  <button
+    on:click={() => {
+      value = '{}';
+      params = null;
+      error = null;
+    }}
+  >
+    clear
+  </button>
   <span>Generated Query String <CopyBtn content={params} /></span>
   <code>{params || ''}</code>
   <p class="error">{error || ''}</p>

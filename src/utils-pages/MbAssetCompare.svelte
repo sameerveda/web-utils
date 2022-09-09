@@ -17,6 +17,7 @@
 <script>
   import { pickBy, uniq, countBy } from 'lodash-es';
   import CopyBtn from '../components/CopyBtn.svelte';
+  import StatusList from '../components/StatusList.svelte';
 
   const cache = JSON.parse(localStorage.getItem('MbAssetCompare') || '{}');
   let liveText = cache.live;
@@ -31,17 +32,13 @@
     const duplicates = countDuplicate(current);
     const liveDuplicates = countDuplicate(live);
 
-    return uniq(live.concat(current)).map(url => ({
+    return uniq(live.concat(current)).map(url => [
       url,
-      status: Object.entries({
-        live_duplicate: liveDuplicates.has(url),
-        duplicate: duplicates.has(url),
-        new: !live.includes(url),
-        missing: !current.includes(url),
-      })
-        .filter(([k, v]) => v)
-        .map(([k]) => k),
-    }));
+      liveDuplicates.has(url) && 'live_duplicate',
+      duplicates.has(url) && 'duplicate',
+      !live.includes(url) && 'new',
+      !current.includes(url) && 'missing',
+    ]);
   })();
 
   $: localStorage.setItem(
@@ -68,19 +65,7 @@
     <textarea rows="30" bind:value={currentText} />
   </div>
 
-  <ul>
-    {#each result as item}
-      <li class="mb1">
-        {item.url}
-        {#each item.status as item}
-          <span class={`status-badge ${item}`}>{item}</span>
-        {:else}
-          <span class={`status-badge ok`}>OK</span>
-        {/each}
-        <CopyBtn content={item.url} />
-      </li>
-    {/each}
-  </ul>
+  <StatusList data={result} />
 </div>
 
 <style>
@@ -88,34 +73,5 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
-  }
-
-  .status-badge {
-    border: 1px solid black;
-    color: white;
-    padding: 2px 4px;
-    font-size: 12px;
-    font-family: 'Courier New', Courier, monospace;
-  }
-
-  .missing {
-    background-color: red;
-  }
-
-  .duplicate {
-    background-color: crimson;
-  }
-
-  .live_duplicate {
-    background-color: brown;
-  }
-
-  .new {
-    background-color: cyan;
-    color: black;
-  }
-
-  .ok {
-    background-color: green;
   }
 </style>
