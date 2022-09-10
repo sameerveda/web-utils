@@ -1,4 +1,5 @@
 import { once } from 'lodash';
+import { writable } from 'svelte/store';
 
 export const pop_badge = once(() => {
   const el = document.createElement('span');
@@ -48,4 +49,15 @@ export function copyOnClick(el, text) {
     update: value => (text = value),
     destroy: () => el.removeEventListener('click', handler),
   };
+}
+
+export function localStorageWritable(key, defaultValue = null) {
+  const w = writable(
+    (localStorage.getItem(key) && JSON.parse(localStorage.getItem(key))) || defaultValue
+  );
+
+  return Object.freeze({
+    subscribe: w.subscribe,
+    set: value => (localStorage.setItem(key, JSON.stringify(value)), w.set(value)),
+  });
 }

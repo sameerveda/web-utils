@@ -4,6 +4,7 @@ const { writeFileSync, writeFile } = require('fs');
 const package = require('./package.json');
 const alias = require('esbuild-plugin-alias');
 const { join } = require('path');
+const postcssPlugin = require('./esbuild/postcss-plugin');
 
 const dev = process.argv.includes('--dev');
 const prod = !dev;
@@ -48,7 +49,8 @@ const builder = format =>
       watch: dev,
       plugins: [
         alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
-        sveltePlugin(),
+        postcssPlugin(),
+        sveltePlugin(require('./svelte.config.js')),
       ],
     })
     .then(() => {

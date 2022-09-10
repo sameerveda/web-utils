@@ -1,13 +1,15 @@
 {
   "name": "web-utils",
-  "version": "0.0.38",
+  "version": "0.0.39",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
     "./app.js": "./src/app.js",
     "./logs-app.js": "./src/logs-app.js",
     "./components/": "./src/components/",
-    "./utils/": "./src/utils/"
+    "./utils/": "./src/utils/",
+    "./esbuild/": "./esbuild/",
+    "./svelte/": "./svelte/"
   },
   "scripts": {
     "start": "node build.js --dev",
@@ -26,6 +28,8 @@
     "esbuild": "^0.15.6",
     "esbuild-plugin-alias": "^0.2.1",
     "esbuild-svelte": "^0.7.1",
+    "postcss": "^8.4.16",
+    "postcss-nested": "^5.0.6",
     "prettier": "^2.7.1",
     "serve-http": "^1.0.7",
     "svelte": "^3.49.0"

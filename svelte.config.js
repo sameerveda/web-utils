@@ -1,5 +1,7 @@
+const postcssPlugin = require('./svelte/postcss-plugin');
+
 module.exports = {
-  preprocess: [],
+  preprocess: [postcssPlugin()],
   compilerOptions: {
     preserveComments: true,
   },
