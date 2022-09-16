@@ -20,7 +20,7 @@ module.exports.startServeHttp = (config = {}) => {
   config = {
     port: 3000,
     quiet: true,
-    pubdir: require('path').join(__dirname, 'public'),
+    pubdir: require('path').resolve('./public'),
     ...config,
   };
   const server = require('serve-http').createServer(config);
