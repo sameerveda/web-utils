@@ -10,7 +10,8 @@
     "./utils/": "./src/utils/",
     "./esbuild/": "./esbuild/",
     "./svelte/": "./svelte/",
-    "./esbuild-init": "./esbuild-init.js"
+    "./esbuild-init": "./esbuild-init.js",
+    "./svelte.config.js": "./svelte.config.js"
   },
   "scripts": {
     "start": "node build.js --dev",
