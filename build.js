@@ -40,6 +40,7 @@ const builder = format =>
       inject: ['./firebaseConfig.js'],
       bundle: true,
       format,
+      logLevel: 'debug',
       loader: esbuild_default_loaders,
       minify: !dev,
       watch: dev,

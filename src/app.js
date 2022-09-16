@@ -6,7 +6,7 @@ import mountApp from './utils/mount-app';
 import Lodash from './utils-pages/Lodash.svelte';
 import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
 import QueryString from './utils-pages/QueryString.svelte';
-import CompareJson from './utils-pages/CompareJson.svelte';
+import CompareJsonObject from './utils-pages/CompareJsonObject.svelte';
 import Skidrow from './utils-pages/Skidrow.svelte';
 import Logs from './views/Logs.svelte';
 
@@ -21,7 +21,7 @@ export const defaultComponents = {
   'MB Asset Compare': MbAssetCompare,
   Lodash,
   Logs,
-  CompareJson,
+  CompareJsonObject,
   Skidrow
 };
 
