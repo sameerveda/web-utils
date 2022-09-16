@@ -1,6 +1,6 @@
 {
   "name": "web-utils",
-  "version": "0.0.39",
+  "version": "0.0.40",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
@@ -9,7 +9,8 @@
     "./components/": "./src/components/",
     "./utils/": "./src/utils/",
     "./esbuild/": "./esbuild/",
-    "./svelte/": "./svelte/"
+    "./svelte/": "./svelte/",
+    "./esbuild-init": "./esbuild-init.js"
   },
   "scripts": {
     "start": "node build.js --dev",

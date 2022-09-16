@@ -7,7 +7,11 @@
   let ta;
 
   $: selectedIndex = $lines.indexOf(selected);
-  $: content$ = selected ? fetch(selected).then(t => t.text()) : Promise.resolve(null);
+  $: content$ = selected
+    ? fetch(selected, { mode: 'no-cors' })
+        .then(t => t.text())
+        .then(t => (console.log(t), t))
+    : Promise.resolve(null);
 </script>
 
 {#if open}

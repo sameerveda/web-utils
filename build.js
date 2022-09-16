@@ -1,10 +1,14 @@
-const sveltePlugin = require('esbuild-svelte');
 const esbuild = require('esbuild');
 const { writeFileSync, writeFile } = require('fs');
 const package = require('./package.json');
 const alias = require('esbuild-plugin-alias');
 const { join } = require('path');
-const postcssPlugin = require('./esbuild/postcss-plugin');
+const {
+  esbuild_default_loaders,
+  sveltePlugin,
+  postcssPlugin,
+  startServeHttp,
+} = require('./esbuild-init');
 
 const dev = process.argv.includes('--dev');
 const prod = !dev;
@@ -36,33 +40,16 @@ const builder = format =>
       inject: ['./firebaseConfig.js'],
       bundle: true,
       format,
-      loader: {
-        '.html': 'text',
-        '.png': 'dataurl',
-        '.woff': 'file',
-        '.woff2': 'file',
-        '.eot': 'file',
-        '.ttf': 'file',
-        '.svg': 'file',
-      },
+      loader: esbuild_default_loaders,
       minify: !dev,
       watch: dev,
       plugins: [
         alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
         postcssPlugin(),
-        sveltePlugin(require('./svelte.config.js')),
+        sveltePlugin(),
       ],
     })
-    .then(() => {
-      if (!dev) return;
-
-      require('serve-http').createServer({
-        port: 3000,
-        quiet: true,
-        pubdir: require('path').join(__dirname, 'public'),
-      });
-      console.log('server started at http://localhost:3000');
-    });
+    .then(() => dev && startServeHttp());
 
 // builder('esm');
 // prod && builder('iife');
