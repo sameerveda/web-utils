@@ -11,8 +11,19 @@ export async function getCurrentTab() {
 }
 
 export function DOMContentLoaded(callback) {
-  if (document.readyState == 'loading') window.addEventListener('DOMContentLoaded', callback);
+  if (document.readyState == 'loading')
+    window.addEventListener('DOMContentLoaded', callback, { once: true });
   else callback();
+}
+
+let _waitDOMContentLoaded;
+/**
+ * @returns {Promise<void>}
+ */
+export function waitDOMContentLoaded() {
+  return (
+    _waitDOMContentLoaded || (_waitDOMContentLoaded = new Promise(res => DOMContentLoaded(res)))
+  );
 }
 
 export function delayedPromise(handler, timeout = 2000) {
