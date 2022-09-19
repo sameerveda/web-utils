@@ -8,6 +8,7 @@ import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
 import QueryString from './utils-pages/QueryString.svelte';
 import CompareJsonObject from './utils-pages/CompareJsonObject.svelte';
 import Skidrow from './utils-pages/Skidrow.svelte';
+import AwlParseHex from './utils-pages/AwlParseHex.svelte';
 import Logs from './views/Logs.svelte';
 
 if (window._) console.error(`failed to set window._ = lodash;`);
@@ -22,7 +23,8 @@ export const defaultComponents = {
   Lodash,
   Logs,
   CompareJsonObject,
-  Skidrow
+  Skidrow,
+  AwlParseHex
 };
 
 App.defaultComponents = defaultComponents;
