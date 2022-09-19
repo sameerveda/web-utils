@@ -1,4 +1,5 @@
 <script>
+  import CopyBtn from '../components/CopyBtn.svelte';
   import { copyOnClick } from '../utils/svelte-utils.js';
 
   let value;
@@ -33,9 +34,9 @@
         );
 </script>
 
-<div id="AwlParseHex" style="border: 1px solid black; margin: 0.5rem; padding: 0.5rem">
-  <label for="AwlParseHex_input" style="display:block">Parse awl legacy select option strings</label>
-  <textarea bind:value id="AwlParseHex_input" type="button" rows="2" cols="10" style="width: 90%" />
+<div id="AwlParseHex" style="border: 1px solid black;" class="m1 p1">
+  <label for="AwlParseHex_input" class="d-block">Parse awl legacy select option strings</label>
+  <textarea bind:value id="AwlParseHex_input" type="button" rows="2" cols="10" class="w-100" />
   {#if error}
     <ul style="color: red">
       {#each error as item}
@@ -44,7 +45,8 @@
     </ul>
   {/if}
   {#if result}
-    <code use:copyOnClick={result.join('\n')}>{result.join('\n')}</code>
+    <textarea value={result.join('\n')} />
+    <CopyBtn content={result.join('\n')} />
   {/if}
 </div>
 
