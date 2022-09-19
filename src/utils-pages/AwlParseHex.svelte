@@ -34,18 +34,21 @@
         );
 </script>
 
-<div id="AwlParseHex" style="border: 1px solid black;" class="m1 p1">
+<div id="AwlParseHex" class="m1 p1 flex flex-column">
   <label for="AwlParseHex_input" class="d-block">Parse awl legacy select option strings</label>
-  <textarea bind:value id="AwlParseHex_input" type="button" rows="2" cols="10" class="w-100" />
+  <textarea bind:value id="AwlParseHex_input" type="button" rows="2" class="w-100" />
   {#if error}
-    <ul style="color: red">
-      {#each error as item}
-        <li>item</li>
-      {/each}
-    </ul>
+    <span style="color: red;">errors ({error.length})</span>
+    <textarea
+      style="color: red"
+      value={error.join('\n')}
+      rows={Math.min(10, error.length)}
+      class="w-100"
+    />
   {/if}
   {#if result}
-    <textarea value={result.join('\n')} />
+    <span>result ({result.length})</span>
+    <textarea value={result.join('\n')} rows={result.length} class="w-100" />
     <CopyBtn content={result.join('\n')} />
   {/if}
 </div>
