@@ -4,10 +4,10 @@ const package = require('./package.json');
 const alias = require('esbuild-plugin-alias');
 const { join } = require('path');
 const {
-  esbuild_default_loaders,
   sveltePlugin,
   postcssPlugin,
   startServeHttp,
+  esbuildDefaultConfig,
 } = require('./esbuild-init');
 
 const dev = process.argv.includes('--dev');
@@ -33,23 +33,17 @@ writeFileSync(
 
 const builder = format =>
   esbuild
-    .build({
-      entryPoints: ['src/app.js'],
-      outdir: prod ? 'dist' : 'public/build',
-      outExtension: { '.js': `.${format}.js` },
-      inject: ['./firebaseConfig.js'],
-      bundle: true,
-      format,
-      logLevel: 'debug',
-      loader: esbuild_default_loaders,
-      minify: !dev,
-      watch: dev,
-      plugins: [
-        alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
-        postcssPlugin(),
-        sveltePlugin(),
-      ],
-    })
+    .build(
+      esbuildDefaultConfig(dev, {
+        outExtension: { '.js': `.${format}.js` },
+        inject: ['./firebaseConfig.js'],
+        format,
+        plugins: defaultPlugins => [
+          alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
+          ...defaultPlugins,
+        ],
+      })
+    )
     .then(() => dev && startServeHttp());
 
 // builder('esm');
