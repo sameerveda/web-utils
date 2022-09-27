@@ -4,6 +4,7 @@
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
+    "./app": "./src/app.js",
     "./app.js": "./src/app.js",
     "./logs-app.js": "./src/logs-app.js",
     "./components/": "./src/components/",
