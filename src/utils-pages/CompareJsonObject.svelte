@@ -2,7 +2,6 @@
   import { debounce, size } from 'lodash-es';
   import StatusList from '../components/StatusList.svelte';
   import json5 from 'json5';
-  import { debounceTime, Subject } from 'rxjs';
 
   let error1 = null;
   let error2 = null;
