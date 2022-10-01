@@ -1,4 +1,3 @@
-import { size } from 'lodash';
 import { FirestoreCollectionWrap } from './firestore-collection-wrap';
 
 /**

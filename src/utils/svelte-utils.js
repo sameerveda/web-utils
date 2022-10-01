@@ -1,4 +1,4 @@
-import { once } from 'lodash';
+import { once } from 'lodash-es';
 import { writable } from 'svelte/store';
 
 export const pop_badge = once(() => {

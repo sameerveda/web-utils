@@ -7,7 +7,6 @@ import Lodash from './utils-pages/Lodash.svelte';
 import MbAssetCompare from './utils-pages/MbAssetCompare.svelte';
 import QueryString from './utils-pages/QueryString.svelte';
 import CompareJsonObject from './utils-pages/CompareJsonObject.svelte';
-import Skidrow from './utils-pages/Skidrow.svelte';
 import AwlParseHex from './utils-pages/AwlParseHex.svelte';
 import Logs from './views/Logs.svelte';
 
@@ -23,7 +22,6 @@ export const defaultComponents = {
   Lodash,
   Logs,
   CompareJsonObject,
-  Skidrow,
   AwlParseHex
 };
 
