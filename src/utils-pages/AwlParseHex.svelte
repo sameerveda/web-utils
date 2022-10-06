@@ -1,6 +1,7 @@
 <script context="module">
   import { join, memoize } from 'lodash-es';
   import { text } from 'svelte/internal';
+  import json5 from 'json5';
 
   const parseLine = memoize(line => {
     const errors = [];
@@ -81,7 +82,7 @@
     <span>JSON</span>
     <textarea
       readonly
-      value={JSON.stringify(resultTextArray)}
+      value={json5.stringify(resultTextArray)}
       rows={Math.min(resultTextArray.length, 10)}
       class="w-100"
     />
