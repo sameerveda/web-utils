@@ -1,6 +1,6 @@
 {
   "name": "web-utils",
-  "version": "0.0.59",
+  "version": "0.0.62",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
@@ -17,7 +17,8 @@
   },
   "scripts": {
     "start": "node build.js --dev",
-    "build": "node build.js --prod"
+    "build": "node build.js --prod",
+    "push": "yarn build && commit-push \"%DATE%\""
   },
   "devDependencies": {
     "@types/chrome": "^0.0.196",
