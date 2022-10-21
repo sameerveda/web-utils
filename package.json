@@ -1,20 +1,7 @@
 {
   "name": "web-utils",
-  "version": "0.0.66",
+  "version": "0.0.67",
   "license": "MIT",
-  "exports": {
-    ".": "./src/index.js",
-    "./app": "./src/app.js",
-    "./app.js": "./src/app.js",
-    "./logs-app.js": "./src/logs-app.js",
-    "./components/": "./src/components/",
-    "./utils/": "./src/utils/",
-    "./esbuild/": "./esbuild/",
-    "./svelte/": "./svelte/",
-    "./esbuild-init": "./esbuild-init.js",
-    "./svelte.config.js": "./svelte.config.js",
-    "./svelte.config": "./svelte.config.js"
-  },
   "scripts": {
     "start": "node build.js --dev",
     "start:component": "node build.js --dev --component-test",
