@@ -1,6 +1,6 @@
 {
   "name": "web-utils",
-  "version": "0.0.62",
+  "version": "0.0.64",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
@@ -22,20 +22,22 @@
   },
   "devDependencies": {
     "@types/chrome": "^0.0.196",
-    "esbuild": "^0.15.6",
-    "firebase": "^9.9.4",
-    "lodash": "^4.17.21",
-    "json5": "^2.2.1",
-    "rxjs": "^7.5.6",
     "basscss": "^8.1.0",
-    "lodash-es": "^4.17.21",
+    "clipboard-copy": "^4.0.1",
+    "esbuild": "^0.15.6",
     "esbuild-plugin-alias": "^0.2.1",
-    "serve-http": "^1.0.7",
-    "svelte": "^3.49.0",
+    "esbuild-svelte": "^0.7.1",
+    "firebase": "^9.9.4",
+    "json5": "^2.2.1",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "postcss": "^8.4.16",
     "postcss-nested": "^5.0.6",
-    "esbuild-svelte": "^0.7.1",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "rxjs": "^7.5.6",
+    "serve-http": "^1.0.7",
+    "svelte": "^3.49.0",
+    "toastify-js": "^1.12.0"
   },
   "prettier": {
     "htmlWhitespaceSensitivity": "ignore",

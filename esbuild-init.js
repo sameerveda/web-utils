@@ -12,6 +12,7 @@ const esbuild_default_loaders = {
 };
 
 const postcssPlugin = (...args) => require('./esbuild/postcss-plugin')(...args);
+const svgToSvelteLoaderPlugin = (...args) => require('./esbuild/svg-to-svelte-loader')(...args);
 
 const sveltePlugin = (...args) =>
   require('esbuild-svelte')(
@@ -85,6 +86,7 @@ const esbuildDefaultConfig = (isDev, config) => {
 module.exports = {
   esbuild_default_loaders,
   postcssPlugin,
+  svgToSvelteLoaderPlugin,
   sveltePlugin,
   startServeHttp,
   esbuildDefaultConfig,

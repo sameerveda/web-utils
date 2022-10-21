@@ -10,13 +10,13 @@
       .map(s => s.trim())
       .filter(Boolean)
       .flatMap(s => {
-        if (s.length === 6 && s.startsWith('0x')) {
+        if (s.length === 6 && s.startsWith('0x') && s !== '\\000') {
           return [s.substring(4), s.substring(2, 4)];
         } else errors.push(s);
       })
       .filter(s => s != null)
       .map(s => String.fromCharCode(parseInt(s, 16)))
-      .join('');
+      .join('').trim().replace(/\0$/, '');
 
     return [t, errors.join(', ')];
   });
