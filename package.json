@@ -1,6 +1,6 @@
 {
   "name": "web-utils",
-  "version": "0.0.65",
+  "version": "0.0.66",
   "license": "MIT",
   "exports": {
     ".": "./src/index.js",
@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "node build.js --dev",
+    "start:component": "node build.js --dev --component-test",
     "build": "node build.js --prod",
     "push": "yarn build && commit-push \"%DATE%\""
   },

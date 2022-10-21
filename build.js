@@ -31,22 +31,17 @@ writeFileSync(
   })}`
 );
 
-const builder = format =>
-  esbuild
-    .build(
-      esbuildDefaultConfig(dev, {
-        outExtension: { '.js': `.${format}.js` },
-        inject: ['./firebaseConfig.js'],
-        format,
-        plugins: defaultPlugins => [
-          alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
-          ...defaultPlugins,
-        ],
-      })
-    )
-    .then(() => dev && startServeHttp());
-
-// builder('esm');
-// prod && builder('iife');
-
-builder('iife');
+esbuild
+  .build(
+    esbuildDefaultConfig(dev, {
+      entryPoints: [
+        process.argv.includes('--component-test') ? './src/component-test.js' : './src/app.js',
+      ],
+      inject: ['./firebaseConfig.js'],
+      plugins: defaultPlugins => [
+        alias({ 'lodash-es': join(__dirname, 'node_modules/lodash/lodash.js') }),
+        ...defaultPlugins,
+      ],
+    })
+  )
+  .then(() => dev && startServeHttp());
