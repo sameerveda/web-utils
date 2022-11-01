@@ -1,10 +1,12 @@
 <script>
+  import clipboardCopy from 'clipboard-copy';
+
   export let content;
 
   async function copy(e) {
     try {
       e.target.textContent = 'Copying';
-      await navigator.clipboard.writeText(content);
+      await clipboardCopy(content);
       e.target.textContent = 'Copied';
       setTimeout(() => (e.target.textContent = 'Copy'), 1000);
     } catch (error) {
