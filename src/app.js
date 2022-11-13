@@ -10,12 +10,15 @@ import CompareJsonObject from './utils-pages/CompareJsonObject.svelte';
 import Awl from './utils-pages/Awl.svelte';
 import EmailEditor from './utils-pages/EmailEditor.svelte';
 import Logs from './views/Logs.svelte';
+import env from './utils/env';
 
 if (window._) console.error(`failed to set window._ = lodash;`);
 else {
   window._ = lodash;
   console.log('lodash available in console. e.g. _.kebabCase');
 }
+
+console.log('env', env);
 
 export const defaultComponents = {
   'Query String': QueryString,
@@ -24,7 +27,7 @@ export const defaultComponents = {
   Logs,
   CompareJsonObject,
   Awl,
-  EmailEditor
+  EmailEditor,
 };
 
 App.defaultComponents = defaultComponents;

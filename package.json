@@ -1,12 +1,12 @@
 {
   "name": "web-utils",
-  "version": "0.0.68",
+  "version": "0.0.76",
   "license": "MIT",
   "scripts": {
     "start": "node build.js --dev",
     "start:component": "node build.js --dev --component-test",
     "build": "node build.js --prod",
-    "push": "yarn build && commit-push \"%DATE%\""
+    "commit-push": "yarn build && commit-push \"%DATE%\""
   },
   "devDependencies": {
     "@types/chrome": "^0.0.196",
