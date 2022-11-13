@@ -6,7 +6,7 @@
     "start": "node build.js --dev",
     "start:component": "node build.js --dev --component-test",
     "build": "node build.js --prod",
-    "commit-push": "yarn build && commit-push \"%DATE%\""
+    "commit-push": "git add -A && git commit -m \"%DATE%\" && npm version patch && git push"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.196",

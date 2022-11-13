@@ -65,17 +65,15 @@ export function localStorageWritable(key, defaultValue = null) {
 export const getHash = () =>
   location.hash.substring(1) ? decodeURIComponent(location.hash.substring(1)) : '';
 export const toHashUrl = (target, base = '/') => `${base}#${encodeURIComponent(target)}`;
-export const hashWritable = (init = getHash(), base = '/') => {
+export const hashWritable = (init = getHash()) => {
   const w = writable(init, set => {
     const handler = () => set(getHash());
     window.addEventListener('hashchange', handler);
     return window.removeEventListener('hashchange', handler);
   });
-  const base0 = base;
-
   return {
     subscribe: w.subscribe,
-    set: (s, base = base0) => void (location.hash = toHashUrl(s, base)),
+    set: s => void (location.hash = encodeURIComponent(s)),
     hash: getHash,
   };
 };
