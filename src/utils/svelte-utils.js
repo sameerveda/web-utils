@@ -69,7 +69,7 @@ export const hashWritable = (init = getHash()) => {
   const w = writable(init, set => {
     const handler = () => set(getHash());
     window.addEventListener('hashchange', handler);
-    return window.removeEventListener('hashchange', handler);
+    return () => window.removeEventListener('hashchange', handler);
   });
   return {
     subscribe: w.subscribe,
