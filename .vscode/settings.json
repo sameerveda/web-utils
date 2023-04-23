@@ -7,8 +7,6 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "node_modules": true,
-        "dist": true,
-        "public": true
     },
     "explorerExclude.backup": {}
 }

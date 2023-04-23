@@ -1,6 +1,6 @@
 {
   "name": "web-utils",
-  "version": "0.0.78",
+  "version": "0.0.83",
   "license": "MIT",
   "scripts": {
     "start": "node build.js --dev",

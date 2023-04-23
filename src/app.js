@@ -10,6 +10,7 @@ import CompareJsonObject from './utils-pages/CompareJsonObject.svelte';
 import Awl from './utils-pages/Awl.svelte';
 import EmailEditor from './utils-pages/EmailEditor.svelte';
 import Logs from './views/Logs.svelte';
+import ExtractScssVars from './utils-pages/ExtractScssVars.svelte';
 import env from './utils/env';
 
 if (window._) console.error(`failed to set window._ = lodash;`);
@@ -28,6 +29,7 @@ export const defaultComponents = {
   CompareJsonObject,
   Awl,
   EmailEditor,
+  ExtractScssVars
 };
 
 App.defaultComponents = defaultComponents;
